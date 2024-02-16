@@ -1,0 +1,58 @@
+﻿<!--Indicamos que queremos acceder al modelo Contacto -->
+@model PrimerCrudMVC.Models.Contacto
+
+@{
+    ViewData["Title"] = "Crear - Contacto";
+}
+
+<h1 class="text-center">Crear un nuevo contacto</h1>
+
+<div class="container">
+    <div class="col-6 card mx-auto p-4">
+        <form method="POST" asp-action="crearContacto" enctype="multipart/form-data" >
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            <!-- Validaciones de requerido del Modelo--> 
+            </div>
+            <div class="form-group">
+                <label asp-for="nombre" class="control-label"></label>
+                <input asp-for="nombre" class="form-control" placeholder="Ingresa un nombre" autocomplete="off"/>
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="telefono" class="control-label"></label>
+                <input asp-for="telefono" class="form-control" placeholder="Ingresa un telefono" autocomplete="off" />
+                <span asp-validation-for="telefono" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="celular" class="control-label"></label>
+                <input asp-for="celular" class="form-control" placeholder="Ingresa un celular" autocomplete="off" />
+                <span asp-validation-for="celular" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" placeholder="Ingresa un correo" autocomplete="off" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="fotografia" class="control-label"></label>
+                <input type="file" asp-for="fotografia" class="form-control"   />
+                <span asp-validation-for="fotografia" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-outline-success d-block mx-auto">
+                    <i class="bi bi-person-add"></i> Crear Contacto
+                </button>
+            </div>
+
+            
+        </form>
+
+        <a asp-action="Index" asp-controller="Home" class="d-block">Volver atras</a>
+        
+    </div>
+</div>

@@ -29,7 +29,9 @@ namespace PrimerCrudMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var contactos = await _contexto.Contactos.ToListAsync();
+            var contactos = await _contexto.Contactos
+                               .OrderBy(c => c.nombre)
+                               .ToListAsync();
             return View(contactos);
         }
 
